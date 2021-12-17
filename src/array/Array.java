@@ -48,14 +48,14 @@ public class Array {
     }
 
     public int get(int index) {
-        if(index < 0 || index > size) {
+        if(index < 0 || index >= size) {
             throw new IllegalArgumentException("获取失败，index不合法");
         }
         return arr[index];
     }
 
     public void set(int index, int e) {
-        if(index < 0 || index > size) {
+        if(index < 0 || index >= size) {
             throw new IllegalArgumentException("设置失败，index不合法");
         }
         arr[index] = e;
@@ -78,6 +78,26 @@ public class Array {
         }
         return -1;
     }
+
+    public int remove(int index) {
+        if(index < 0 || index >= size) {
+            throw new IllegalArgumentException("删除失败，index不合法");
+        }
+        int el = arr[index];
+        for (int i = index + 1; i < size; i++) {
+            arr[i - 1] = arr[i];
+        }
+        size --;
+        return el;
+    }
+    public int removeFirst() {
+        return remove(0);
+    }
+
+    public int removeLase() {
+        return remove(size-1);
+    }
+
 
     @Override
     public String toString() {

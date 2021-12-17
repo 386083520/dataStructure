@@ -15,8 +15,10 @@ public class Main {
         array.addFirst(11);
         array.set(0, 13);
         System.out.println(array);
-        System.out.println(array.find(33));
-        System.out.println(array.contains(6));
-        System.out.println(array.contains(61));
+        array.remove(3);
+        array.removeFirst();
+        array.removeLase();
+        array.set(8, 9);
+        System.out.println(array);
     }
 }
