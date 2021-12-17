@@ -11,6 +11,7 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             array.addLast(i);
         }
+        array.remove(2);
         array.removeElement(7);
         System.out.println(array);
     }

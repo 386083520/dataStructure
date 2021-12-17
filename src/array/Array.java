@@ -1,10 +1,10 @@
 package array;
 
-public class Array {
-    private int[] arr;
+public class Array<E> {
+    private E[] arr;
     private int size;
     public Array(int capacity) {
-        arr = new int[capacity];
+        arr = (E[])new Object[capacity];
         size = 0;
     }
     public Array() {
@@ -20,7 +20,7 @@ public class Array {
         return arr.length;
     }
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         /*if(size == arr.length) {
             throw new IllegalArgumentException("添加失败，容量已满");
         }
@@ -29,11 +29,11 @@ public class Array {
         add(size ,e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0 ,e);
     }
 
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         if(size == arr.length) {
             throw new IllegalArgumentException("添加失败，容量已满");
         }
@@ -47,58 +47,59 @@ public class Array {
         size++;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("获取失败，index不合法");
         }
         return arr[index];
     }
 
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("设置失败，index不合法");
         }
         arr[index] = e;
     }
 
-    public boolean contains(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if(arr[i] == e) {
+            if(arr[i].equals(e)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if(arr[i] == e) {
+            if(arr[i].equals(e)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int remove(int index) {
+    public E remove(int index) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("删除失败，index不合法");
         }
-        int el = arr[index];
+        E el = arr[index];
         for (int i = index + 1; i < size; i++) {
             arr[i - 1] = arr[i];
         }
+        arr[size] = null;
         size --;
         return el;
     }
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    public int removeLase() {
+    public E removeLast() {
         return remove(size-1);
     }
 
-    public void removeElement(int e) {
+    public void removeElement(E e) {
         int index = find(e);
         if(index != -1) {
             remove(index);
