@@ -61,6 +61,24 @@ public class Array {
         arr[index] = e;
     }
 
+    public boolean contains(int e) {
+        for (int i = 0; i < size; i++) {
+            if(arr[i] == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int find(int e) {
+        for (int i = 0; i < size; i++) {
+            if(arr[i] == e) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

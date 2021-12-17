@@ -14,7 +14,9 @@ public class Main {
         array.add(3, 33);
         array.addFirst(11);
         array.set(0, 13);
-        System.out.println(array.get(2));
-        System.out.println(array.toString());
+        System.out.println(array);
+        System.out.println(array.find(33));
+        System.out.println(array.contains(6));
+        System.out.println(array.contains(61));
     }
 }
