@@ -98,6 +98,13 @@ public class Array {
         return remove(size-1);
     }
 
+    public void removeElement(int e) {
+        int index = find(e);
+        if(index != -1) {
+            remove(index);
+        }
+    }
+
 
     @Override
     public String toString() {

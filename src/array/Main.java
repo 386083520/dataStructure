@@ -11,14 +11,7 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             array.addLast(i);
         }
-        array.add(3, 33);
-        array.addFirst(11);
-        array.set(0, 13);
-        System.out.println(array);
-        array.remove(3);
-        array.removeFirst();
-        array.removeLase();
-        array.set(8, 9);
+        array.removeElement(7);
         System.out.println(array);
     }
 }
