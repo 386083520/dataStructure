@@ -35,7 +35,8 @@ public class Array<E> {
 
     public void add(int index, E e) {
         if(size == arr.length) {
-            throw new IllegalArgumentException("添加失败，容量已满");
+            // throw new IllegalArgumentException("添加失败，容量已满");
+            resize(getCapacity() * 2);
         }
         if(index < 0 || index > size) {
             throw new IllegalArgumentException("添加失败，index不合法");
@@ -87,8 +88,11 @@ public class Array<E> {
         for (int i = index + 1; i < size; i++) {
             arr[i - 1] = arr[i];
         }
-        arr[size] = null;
         size --;
+        arr[size] = null;
+        if(size == getCapacity()/2) {
+            resize(getCapacity()/2);
+        }
         return el;
     }
     public E removeFirst() {
@@ -104,6 +108,14 @@ public class Array<E> {
         if(index != -1) {
             remove(index);
         }
+    }
+
+    private void resize(int capacity) {
+        E[] newArr = (E[])new Object[capacity];
+        for (int i = 0; i < size; i++) {
+            newArr[i] = arr[i];
+        }
+        arr = newArr;
     }
 
 
