@@ -55,6 +55,14 @@ public class Array<E> {
         return arr[index];
     }
 
+    public E getLast() {
+        return get(size- 1);
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
     public void set(int index, E e) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("设置失败，index不合法");
