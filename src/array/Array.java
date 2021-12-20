@@ -90,7 +90,7 @@ public class Array<E> {
         }
         size --;
         arr[size] = null;
-        if(size == getCapacity()/2) {
+        if(size == getCapacity()/4) {
             resize(getCapacity()/2);
         }
         return el;
