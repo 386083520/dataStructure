@@ -22,7 +22,12 @@ public class LoopQueue<E> implements Queue<E>{
 
     @Override
     public void enqueue(E e) {
-
+        if((tail + 1) % array.length == front) {
+            resize(2 * getCapacity());
+        }
+        array[tail] = e;
+        tail = (tail + 1) % array.length;
+        size ++;
     }
 
     @Override
@@ -42,5 +47,15 @@ public class LoopQueue<E> implements Queue<E>{
 
     public int getSize() {
         return size;
+    }
+
+    private void resize(int capacity) {
+        E[] newArray = (E[])new Object[capacity + 1];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[(i + front) % array.length];
+        }
+        array = newArray;
+        front = 0;
+        tail = size;
     }
 }
