@@ -43,4 +43,22 @@ public class LinkedList<E> {
         head = node;
         size ++;
     }
+
+    public void add(int index, E e) {
+        if(index < 0 || index > size) {
+            throw new IllegalArgumentException("添加失败，index不合法");
+        }
+        if(index == 0) {
+            addFirst(e);
+        }else {
+            Node pre = head;
+            for (int i = 0; i < index - 1; i++) {
+                pre = pre.next;
+            }
+            Node node = new Node(e);
+            node.next = pre.next;
+            pre.next = node;
+            size ++;
+        }
+    }
 }
