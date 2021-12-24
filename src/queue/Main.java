@@ -16,10 +16,19 @@ public class Main {
         return (endTime - startTime)/1000000;
     }
     public static void main(String[] args) {
-        int time = 10000;
+        int time = 100000;
         Queue<Integer> loopQueue = new LoopQueue<>();
         System.out.println("loopQueue:" + test(loopQueue, time));
         Queue<Integer> arrayQueue = new ArrayQueue<>();
         System.out.println("arrayQueue:" + test(arrayQueue, time));
+        Queue<Integer> linkedListQueue = new LinkedListQueue<>();
+        System.out.println("linkedListQueue:" + test(linkedListQueue, time));
+        /*Queue<Integer> linkedListQueue = new LinkedListQueue<>();
+        for (int i = 0; i < 10; i++) {
+            linkedListQueue.enqueue(i);
+        }
+        linkedListQueue.dequeue();
+        System.out.println(linkedListQueue.getFront());
+        System.out.println(linkedListQueue);*/
     }
 }

@@ -34,21 +34,55 @@ public class LinkedListQueue<E> implements Queue<E>{
 
     @Override
     public void enqueue(E e) {
-
+        Node node = new Node(e);
+        if(tail == null) {
+            tail = node;
+            head = node;
+        }else {
+            tail.next = node;
+            tail = node;
+        }
+        size ++;
     }
 
     @Override
     public E dequeue() {
-        return null;
+        if(isEmpty()) {
+            throw new IllegalArgumentException("出队失败，队列为空");
+        }
+        Node returnNode = head;
+        head = head.next;
+        returnNode.next = null;
+        if(head == null) {
+            tail = null;
+        }
+        size --;
+        return returnNode.e;
     }
 
     @Override
     public E getFront() {
-        return null;
+        if(isEmpty()) {
+            throw new IllegalArgumentException("查看失败，队列为空");
+        }
+        return head.e;
     }
 
     @Override
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Queue: front ");
+        Node cur = head;
+        while (cur != null){
+            builder.append(cur.e + "->");
+            cur = cur.next;
+        }
+        builder.append("Null tail");
+        return builder.toString();
     }
 }
