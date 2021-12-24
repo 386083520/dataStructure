@@ -37,10 +37,6 @@ public class DummyLinkedList<E> {
         return size == 0;
     }
 
-    public void addFirst(E e) {  // null->1->2->3->4
-        add(0, e);
-    }
-
     public void add(int index, E e) {
         if(index < 0 || index > size) {
             throw new IllegalArgumentException("添加失败，index不合法");
@@ -53,6 +49,37 @@ public class DummyLinkedList<E> {
         node.next = pre.next;
         pre.next = node;
         size ++;
+    }
+
+    public void addFirst(E e) {  // null->1->2->3->4
+        add(0, e);
+    }
+
+    public void addLast(E e) {
+        add(size, e);
+    }
+
+    public E remove(int index) { //null-> 1->2->3->4
+        if(index < 0 || index >= size) {
+            throw new IllegalArgumentException("删除失败，index不合法");
+        }
+        Node pre = dummyHead;
+        for (int i = 0; i < index; i++) {
+            pre = pre.next;
+        }
+        Node cur = pre.next;
+        pre.next = cur.next;
+        cur.next = null;
+        size--;
+        return cur.e;
+    }
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size - 1);
     }
 
     public E get(int index) {

@@ -8,6 +8,8 @@ public class Main {
         }
         linkedList.add(3, 66);
         linkedList.set(3, 88);
+        linkedList.remove(3);
+        linkedList.remove(3);
         System.out.println(linkedList.contains(66));
         System.out.println(linkedList);
     }
