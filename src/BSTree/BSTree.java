@@ -52,6 +52,7 @@ public class BSTree<E extends Comparable> {
             add(node.right, e);
         }*/
         if(node == null) {
+            size++;
             return new Node(e);
         }
         if(e.compareTo(node.e) < 0) {
