@@ -1,6 +1,8 @@
 package BSTree;
 
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BSTree<E extends Comparable> {
@@ -130,6 +132,21 @@ public class BSTree<E extends Comparable> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
+    }
+
+    public void levelOrder() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            System.out.println(node.e);
+            if(node.left != null) {
+                queue.add(node.left);
+            }
+            if(node.right != null) {
+                queue.add(node.right);
+            }
+        }
     }
 
     @Override

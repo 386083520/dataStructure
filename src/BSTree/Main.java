@@ -7,9 +7,11 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             bsTree.add(arr[i]);
         }
-        System.out.println(bsTree);
+        /*System.out.println(bsTree);
         bsTree.preOrder();
         System.out.println();
-        bsTree.preOrderNR();
+        bsTree.preOrderNR();*/
+        System.out.println(bsTree);
+        bsTree.levelOrder();
     }
 }
