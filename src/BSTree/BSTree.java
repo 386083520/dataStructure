@@ -78,4 +78,41 @@ public class BSTree<E extends Comparable> {
             return contains(node.right, e);
         }
     }
+
+    public void preOrder() {
+        preOrder(root);
+    }
+    private void preOrder(Node node) {
+        if(node == null) {
+            return;
+        }
+        System.out.println(node.e);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        buildBstString(root, 0, builder);
+        return builder.toString();
+    }
+
+    private void buildBstString(Node node, int dept, StringBuilder builder) {
+        if(node == null) {
+            builder.append(buildDeptString(dept) + "NULL\n");
+            return;
+        }
+        builder.append(buildDeptString(dept) + node.e + "\n");
+        buildBstString(node.left, dept + 1, builder);
+        buildBstString(node.right, dept + 1, builder);
+    }
+
+    private String buildDeptString(int dept) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < dept; i++) {
+            builder.append("--");
+        }
+        return builder.toString();
+    }
 }
