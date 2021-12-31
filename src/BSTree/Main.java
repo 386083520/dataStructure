@@ -10,8 +10,6 @@ public class Main {
         System.out.println(bsTree);
         bsTree.preOrder();
         System.out.println();
-        bsTree.inOrder();
-        System.out.println();
-        bsTree.postOrder();
+        bsTree.preOrderNR();
     }
 }

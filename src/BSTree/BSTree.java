@@ -1,6 +1,8 @@
 package BSTree;
 
 
+import java.util.Stack;
+
 public class BSTree<E extends Comparable> {
     private class Node {
         private E e;
@@ -89,6 +91,21 @@ public class BSTree<E extends Comparable> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    public void preOrderNR() {
+        Stack<Node> stack = new Stack();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node node = stack.pop();
+            System.out.println(node.e);
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+            if(node.left != null) {
+                stack.push(node.left);
+            }
+        }
     }
 
     public void inOrder() {
