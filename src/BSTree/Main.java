@@ -12,6 +12,7 @@ public class Main {
         System.out.println();
         bsTree.preOrderNR();*/
         System.out.println(bsTree);
-        bsTree.levelOrder();
+        System.out.println(bsTree.min());
+        System.out.println(bsTree.max());
     }
 }

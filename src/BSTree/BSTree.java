@@ -149,6 +149,32 @@ public class BSTree<E extends Comparable> {
         }
     }
 
+    public E min() {
+        if(size == 0) {
+            throw new IllegalArgumentException("树为空，无法获取最小值");
+        }
+        return min(root).e;
+    }
+    private Node min(Node node) {
+        if(node.left == null) {
+            return node;
+        }
+        return min(node.left);
+    }
+
+    public E max() {
+        if(size == 0) {
+            throw new IllegalArgumentException("树为空，无法获取最大值");
+        }
+        return max(root).e;
+    }
+    private Node max(Node node) {
+        if(node.right == null) {
+            return node;
+        }
+        return max(node.right);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
