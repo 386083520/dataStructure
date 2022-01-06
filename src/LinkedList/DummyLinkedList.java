@@ -82,6 +82,10 @@ public class DummyLinkedList<E> {
         return remove(size - 1);
     }
 
+    public void removeElement(E e) {
+        // TODO
+    }
+
     public E get(int index) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("获取失败，index不合法");
