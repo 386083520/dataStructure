@@ -175,6 +175,10 @@ public class BSTree<E extends Comparable> {
         return max(node.right);
     }
 
+    public void remove(E e) {
+        // TODO
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
