@@ -2,7 +2,7 @@ package map;
 
 public class Main {
     public static void main(String[] args) {
-        Map map = new LinkedListMap();
+        Map map = new BSTreeMap();
         map.add("a", "a");
         map.add("b", "b");
         map.add("c", "c");
