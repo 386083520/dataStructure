@@ -76,4 +76,11 @@ public class MaxHeap<E extends Comparable<E>> {
         }
     }
 
+    public E replace(E e) {
+        E res = getMax();
+        array.set(0, e);
+        siftDown(0);
+        return res;
+    }
+
 }
