@@ -126,6 +126,15 @@ public class Array<E> {
         arr = newArr;
     }
 
+    public void swap(int i, int j) {
+        if(i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IllegalArgumentException("参数不合法");
+        }
+        E temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
 
     @Override
     public String toString() {

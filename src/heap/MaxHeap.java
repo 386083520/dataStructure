@@ -20,20 +20,31 @@ public class MaxHeap<E extends Comparable<E>> {
         return array.isEmpty();
     }
 
-    public E parent(int index) {
+    public int parent(int index) {
         if(index == 0) {
             throw new IllegalArgumentException("该索引不存在父亲节点");
         }
-        return array.get((index - 1)/2);
+        return (index - 1)/2;
     }
 
-    public E leftChild(int index) {
-        return array.get(index * 2 + 1);
+    public int leftChild(int index) {
+        return index * 2 + 1;
     }
 
-    public E rightChild(int index) {
-        return array.get(index * 2 + 2);
+    public int rightChild(int index) {
+        return index * 2 + 2;
     }
 
+    public void add(E e) {
+        array.addLast(e);
+        shiftUp(array.getSize() - 1);
+    }
+
+    private void shiftUp(int index) {
+        while (index > 0 && (array.get(index).compareTo(array.get(parent(index))) > 0)) {
+            array.swap(index, parent(index));
+            index = parent(index);
+        }
+    }
 
 }
