@@ -7,6 +7,13 @@ public class Array<E> {
         arr = (E[])new Object[capacity];
         size = 0;
     }
+    public Array(E[] array) {
+        arr = (E[])new Object[array.length];
+        for (int i = 0; i < array.length; i++) {
+            arr[i] = array[i];
+        }
+        size = array.length;
+    }
     public Array() {
         this(10);
     }

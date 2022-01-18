@@ -11,6 +11,12 @@ public class MaxHeap<E extends Comparable<E>> {
     public MaxHeap() {
         array = new Array<>();
     }
+    public MaxHeap(E[] arr) {
+        array = new Array<>(arr);
+        for (int i = parent(arr.length - 1); i >= 0; i++) {
+            siftDown(i);
+        }
+    }
 
     public int getSize() {
         return array.getSize();
