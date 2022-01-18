@@ -53,7 +53,7 @@ public class MaxHeap<E extends Comparable<E>> {
         }
     }
 
-    private E getMax() {
+    public E getMax() {
         if(array.getSize() == 0) {
             throw new IllegalArgumentException("堆为空");
         }
