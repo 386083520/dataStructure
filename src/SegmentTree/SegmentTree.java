@@ -28,6 +28,30 @@ public class SegmentTree<E> {
         tree[treeIndex] = merger.merge(tree[leftChildIndex], tree[rightChildIndex]);
     }
 
+    public void set(int index, E e) {
+        if(index < 0 || index >= data.length) {
+            throw new IllegalArgumentException("参数不合法");
+        }
+        data[index] = e;
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    private void set(int treeIndex, int l, int r, int index, E e) {
+        if(l == r) {
+            tree[treeIndex] = e;
+            return;
+        }
+        int mid = l + (r - l)/2;
+        int leftChildIndex = leftChild(treeIndex);
+        int rightChildIndex = rightChild(treeIndex);
+        if(index <= mid) {
+            set(leftChildIndex, l, mid, index, e);
+        }else {
+            set(rightChildIndex, mid+1, r, index, e);
+        }
+        tree[treeIndex] = merger.merge(tree[leftChildIndex], tree[rightChildIndex]);
+    }
+
     public E query(int queryL, int queryR) {
         if(queryL < 0 || queryL >= data.length || queryR < 0 || queryR >= data.length || queryL > queryR) {
             throw new IllegalArgumentException("参数不合法");

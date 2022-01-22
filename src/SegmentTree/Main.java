@@ -9,6 +9,7 @@ public class Main {
                 return a + b;
             }
         });
+        segmentTree.set(1,5);
         // System.out.println(segmentTree.toString());
         System.out.println(segmentTree.query(1,5));
     }
