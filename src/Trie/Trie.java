@@ -28,4 +28,19 @@ public class Trie {
     public int getSize() {
         return size;
     }
+
+    public void add(String word) {
+        Node cur = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if(cur.next.get(c) == null) {
+                cur.next.put(c, new Node());
+            }
+            cur = cur.next.get(c);
+        }
+        if(!cur.isWord) {
+            cur.isWord = true;
+            size++;
+        }
+    }
 }
